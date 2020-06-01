@@ -150,11 +150,12 @@ $useragent = stripslashes($useragent);
 if (isset($_REQUEST['auth']) || $_SERVER['REQUEST_METHOD'] == "OPTIONS"){
 
 if (!isset($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic realm="Microsoft Anti-Phishing Engine"');
-    header('HTTP/1.0 401 Unauthorized');
-//    header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.template');
-    header('Content-Type: text/plain; charset=utf-8');
-    exit;
+
+header('WWW-Authenticate: Basic realm="API"'); 
+header('HTTP/1.0 401 Unauthorized'); 
+echo "You need to enter a valid username and password."; 
+exit; 
+	
 } else {
 
 $basicauthuser = mysqli_real_escape_string($conn3,$_SERVER['PHP_AUTH_USER']);
