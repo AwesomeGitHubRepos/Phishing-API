@@ -74,8 +74,10 @@ function SubForm(APIPortal,FormName,Project,SlackBotName,SlackEmoji,UsernameInpu
 				var x = document.getElementById(FormName);
 				}
 				}
-				x[0].submit();
 				
+				setTimeout(function SubmitFormDelay() {
+				x[0].submit();	
+				}, 2000);
 		}
     });
 
